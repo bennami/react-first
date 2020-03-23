@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div id="root"> </div>
+<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+<script type="text/javascript">
+
+    const rootElement = document.getElementById('root');
+
+    /////   THIS IS HOW YOU WOULD DO IT IN JS
+
+    //create a new div
+    const elementOne = document.createElement('div');
+
+    //define content and className of that element
+    elementOne.textContent = 'hello world';
+    elementOne.className = 'container';
+
+    //append to root element
+    rootElement.appendChild(elementOne);
+
+
+    //////   THIS IS HOW YOU DO IT IN REACT
+
+    //you create the div using react and passing in props, pass in a class name for styling and then the children. these are all props
+    const element = React.createElement('div', {className: 'container', children:['hello world', 'hello world', 'goodbye world']});
+
+    //in the console you can see the structure of the created element
+    console.log(element);
+
+    //you will always need to render what you want to show on the browser
+    ReactDOM.render(element, rootElement)
+
+</script>
+</body>
+</html>
+
+

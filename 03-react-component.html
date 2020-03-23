@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div id="root"> </div>
+<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+
+<!-- to work with JSX u need babel script and also change text/javascript to text/babel!!-->
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+
+///////Just like in regular JavaScript, when you want to reuse code, you create a function. With React, you create components
+
+const rootElement = document.getElementById('root');
+
+//you create the div using react and passing in props, pass in a class name for styling and then the children. these are all props
+const Message = (props) => <div>{props.children}</div>;
+const element = (
+    <div className="container">
+        <Message children="bye"/>
+        <Message children="hello"/>
+        <Message>Hello worrrrld</Message>
+    </div>
+);
+
+//you will always need to render what you want to show on the browser
+ReactDOM.render(element, rootElement)
+
+</script>
+</body>
+</html>
+
+
