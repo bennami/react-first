@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div id="root"> </div>
+<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/prop-types@15.6/prop-types.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+
+<!-- to work with JSX u need babel script and also change text/javascript to text/babel!!-->
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+
+    function SayHello(props){
+        return(
+            <div>
+                Hello {props.firstName} {props.lastName }!
+            </div>
+
+        )
+    }
+
+
+//////// this is a function that will check what type of prop is being passed. by importing the prop-types script, we are using the built in react package that does this for us////////
+
+   /* const PropTypes = {
+        string(props, propName, componentName) {
+            if (typeof props[propName] !== 'string') {
+                return new Error(`hey, you should pass string for ${propName} in ${componentName} but you passed a ${typeof props[propName]}!`
+                )
+
+            }
+        }
+    }*/
+
+
+    //i do not know why  this propTypes needs to be lowercase
+    SayHello.propTypes = {
+        //it will only show an error for the props that are actually being rendered
+        firstName: PropTypes.string,
+        lastName: PropTypes.string,
+
+    };
+
+    ReactDOM.render(
+       <SayHello firstName={true}  lastName={true} />,
+       document.getElementById('root')
+     )
+
+</script>
+</body>
+</html>
+
+
