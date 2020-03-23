@@ -2,4 +2,4 @@
 
 diving into react.
 following this tutorial:
-https://egghead.io/lessons/
+https://egghead.io/lessons/react-introduction-to-the-beginner-s-guide-to-reactjs
