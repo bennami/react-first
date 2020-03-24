@@ -20,11 +20,17 @@
 .box{
     border: black solid 3px;
     height: 120px;
-
 }
 .box--small{
     width: 60px;
     height: 60px;
+}
+
+.box--medium{
+
+    width: 120px;
+    height: 120px;
+
 }
 
 </style>
@@ -53,11 +59,12 @@ const element = (
 );
 */
 
-///now lets turn the const element into a function component
-function Box ({style,size, className ='', ...rest}){
-    const   sizeClassName  = size ? `box--${size}`;
+///now lets turn the const element into a function component, rest renders the rest of the div box component
+function Box ({style, size, className ='', ...rest}){
+    const   sizeClassName  = size ? `box--${size}` : ``;
     return (
      <div
+        //in html we use
         className={`box ${className} ${sizeClassName}`}
         style={{paddingLeft: 20, ...style}}
         {...rest}
@@ -72,7 +79,6 @@ const element = (
         <Box  size="large" style={{backgroundColor:'orange'}}>small box</Box>
     </div>
 );
-
 
 ReactDOM.render(element, document.getElementById('root'))
 
