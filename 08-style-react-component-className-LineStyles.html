@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div id="root"> </div>
+<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/prop-types@15.6/prop-types.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+
+<!-- to work with JSX u need babel script and also change text/javascript to text/babel!!-->
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<style>
+.box{
+    border: black solid 3px;
+    height: 120px;
+
+}
+.box--small{
+    width: 60px;
+    height: 60px;
+}
+
+</style>
+<script type="text/babel">
+
+const rootElement  = document.getElementById('root');
+
+//you cannot have variables called 'class', that will result in a syntax error
+const className = 'box box--small';
+const  props  = {
+    className,
+    style: {paddingLeft: 20},
+};
+
+/////// passing 20 as a value  is the same as passing a string of 20px. react translates the value to pixels
+/*const element = <div>
+    <div className=" box box--small" style={{paddingLeft:20}}>box</div>
+</div>;*/
+
+/////// same as above but with props
+/*
+const element = (
+    <div>
+        <div{...props}>box</div>
+    </div>
+);
+*/
+
+///now lets turn the const element into a function component
+function Box ({style,size, className ='', ...rest}){
+    const   sizeClassName  = size ? `box--${size}`;
+    return (
+     <div
+        className={`box ${className} ${sizeClassName}`}
+        style={{paddingLeft: 20, ...style}}
+        {...rest}
+     />
+    )
+}
+
+const element = (
+    <div>
+        <Box  size="small" style={{backgroundColor:'lightblue'}}>small box</Box>
+        <Box  size="medium" style={{backgroundColor:'pink'}}>small box</Box>
+        <Box  size="large" style={{backgroundColor:'orange'}}>small box</Box>
+    </div>
+);
+
+
+ReactDOM.render(element, document.getElementById('root'))
+
+</script>
+</body>
+</html>
+
+
