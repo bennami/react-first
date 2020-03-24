@@ -26,18 +26,17 @@
         )
     }
 
+  //////// this is a function that will check what type of prop is being passed. by importing the prop-types script, we are using the built in react package that does this for us////////
 
-//////// this is a function that will check what type of prop is being passed. by importing the prop-types script, we are using the built in react package that does this for us////////
+    /* const PropTypes = {
+         string(props, propName, componentName) {
+             if (typeof props[propName] !== 'string') {
+                 return new Error(`hey, you should pass string for  ${propName} in ${componentName} but you passed a ${typeof props[propName]}!`
+                 )
 
-   /* const PropTypes = {
-        string(props, propName, componentName) {
-            if (typeof props[propName] !== 'string') {
-                return new Error(`hey, you should pass string for ${propName} in ${componentName} but you passed a ${typeof props[propName]}!`
-                )
-
-            }
-        }
-    }*/
+             }
+         }
+     }*/
 
 
     //i do not know why  this propTypes needs to be lowercase
@@ -49,9 +48,9 @@
     };
 
     ReactDOM.render(
-       <SayHello firstName={true}  lastName={true} />,
-       document.getElementById('root')
-     )
+        <SayHello firstName={true}  lastName={true} />,
+        document.getElementById('root')
+    )
 
 </script>
 </body>
