@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div id="root"> </div>
+<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/prop-types@15.6/prop-types.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+
+<!-- to work with JSX u need babel script and also change text/javascript to text/babel!!-->
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<style>
+
+
+</style>
+<script type="text/babel">
+const state = {eventCount: 0, username: ''};
+
+function App(){
+    return(
+
+        <div>
+            <p>
+                there have been {state.eventCount} events
+            </p>
+
+            <p>
+            {/*adding on click prop*/}
+            <button onClick={increment}>⚛️</button>
+            </p>
+
+            <p>you typed: {state.username}</p>
+
+            <p>
+            <input onChange={updateUsername}/>
+            </p>
+
+        </div>
+        )
+}
+
+//this is how we change the state of username and eventCount
+//event parameter references the type of event u pass this  function in, in this example it would the the onChange event
+function updateUsername(event) {
+   console.log(event);
+   setState({username: event.target.value,})
+}
+
+function increment(){
+    setState({eventCount: state.eventCount +1,})
+}
+function setState(newState){
+    Object.assign(state, newState);
+    renderApp()
+}
+
+//rerendrs app when we call setState
+function renderApp(){
+    ReactDOM.render(
+        <App/>,
+        document.getElementById('root'),
+    )
+}
+renderApp();
+
+</script>
+</body>
+</html>
+
+
